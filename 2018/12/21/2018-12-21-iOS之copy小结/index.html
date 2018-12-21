@@ -5,19 +5,26 @@
   
 
   
-  <title>仰望星空</title>
+  <title>iOS之copy小结 | 仰望星空</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="设计师,iOS研发工程师,爱好旅游,电影,斯诺克">
-<meta name="keywords" content="仰望星空,iOS,苹果,开发,developer,swift">
-<meta property="og:type" content="website">
-<meta property="og:title" content="仰望星空">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Index:  介绍Copy和MutableCopy 介绍深拷贝与浅拷贝 Block为什么要用Copy Copy相对于直接赋值的好处  预备知识 :  内存的栈区 : 由编译器自动分配释放, 存放函数的参数值, 局部变量的值等. 其操作方式类似于数据结构中的栈.   内存的堆区 : 一般由程序员分配释放, 若程序员不释放, 程序结束时可能由OS回收. 注意它与数据结构中的堆是两回事, 分配方式倒是">
+<meta name="keywords" content="cookies">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS之copy小结">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/2018-12-21-iOS之copy小结/index.html">
 <meta property="og:site_name" content="仰望星空">
-<meta property="og:description" content="设计师,iOS研发工程师,爱好旅游,电影,斯诺克">
+<meta property="og:description" content="Index:  介绍Copy和MutableCopy 介绍深拷贝与浅拷贝 Block为什么要用Copy Copy相对于直接赋值的好处  预备知识 :  内存的栈区 : 由编译器自动分配释放, 存放函数的参数值, 局部变量的值等. 其操作方式类似于数据结构中的栈.   内存的堆区 : 一般由程序员分配释放, 若程序员不释放, 程序结束时可能由OS回收. 注意它与数据结构中的堆是两回事, 分配方式倒是">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1862021-033a76bdc46c60a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/706">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1862021-6e9413ddd7d83f99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/653">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1862021-241ed6eae6479846.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/652">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1862021-ec960a49e655a4cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/655">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1862021-d9694468cbad6cdc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/809">
+<meta property="og:updated_time" content="2018-12-21T02:12:20.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="仰望星空">
-<meta name="twitter:description" content="设计师,iOS研发工程师,爱好旅游,电影,斯诺克">
+<meta name="twitter:title" content="iOS之copy小结">
+<meta name="twitter:description" content="Index:  介绍Copy和MutableCopy 介绍深拷贝与浅拷贝 Block为什么要用Copy Copy相对于直接赋值的好处  预备知识 :  内存的栈区 : 由编译器自动分配释放, 存放函数的参数值, 局部变量的值等. 其操作方式类似于数据结构中的栈.   内存的堆区 : 一般由程序员分配释放, 若程序员不释放, 程序结束时可能由OS回收. 注意它与数据结构中的堆是两回事, 分配方式倒是">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1862021-033a76bdc46c60a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/706">
   
     <link rel="alternate" href="/atom.xml" title="仰望星空" type="application/atom+xml">
   
@@ -68,9 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-2018-12-21-iOS之copy小结" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-2018-12-21-iOS之copy小结" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/21/2018-12-21-iOS之copy小结/" class="article-date">
   <time datetime="2018-12-21T01:37:22.000Z" itemprop="datePublished">2018-12-21</time>
@@ -83,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/21/2018-12-21-iOS之copy小结/">iOS之copy小结</a>
+    <h1 class="article-title" itemprop="name">
+      iOS之copy小结
     </h1>
   
 
@@ -156,71 +161,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-2018-12-20-类和结构体的区别" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/20/2018-12-20-类和结构体的区别/" class="article-date">
-  <time datetime="2018-12-20T01:37:22.000Z" itemprop="datePublished">2018-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/20/2018-12-20-类和结构体的区别/">面向对象之 类和结构体的区别</a>
-    </h1>
+    <a href="/2018/12/20/2018-12-20-类和结构体的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面向对象之 类和结构体的区别</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>预备知识</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">内存的栈区 : 由编译器自动分配释放, 存放函数的参数值, 局部变量的值等. 其操作方式类似于数据结构中的栈.</span><br><span class="line">内存的堆区 : 一般由程序员分配释放, 若程序员不释放, 程序结束时可能由OS回收. 注意它与数据结构中的堆是两回事, 分配方式倒是类似于链表.</span><br></pre></td></tr></table></figure>
-<p><strong>1.内容不同</strong></p>
-<p>结构体是一种值类型，而类是引用类型。值类型用于存储数据的值，引用类型用于存储对实际数据的引用。</p>
-<p>那么结构体就是当成值来使用的，类则通过引用来对实际数据进行操作。</p>
-<p><strong>2.存储位置不同</strong></p>
-<p>结构使用栈存储（Stack Allocation），而类使用堆存储（Heap Allocation)</p>
-<p>栈空间由系统管理，堆空间有程序自己管理。</p>
-<p>栈的空间相对较小，但是存储在栈中的数据访问效率相对较高。</p>
-<p>堆的空间相对较大，但是存储在堆中的数据的访问效率相对较低。</p>
-<p><strong>3.作用不同</strong></p>
-<p>类是反映现实事物的一种抽象，而结构体的作用只是一种包含了具体不同类别数据的一种包装，结构体不具备类的继承多态特性</p>
-<p><strong>4.赋值方式不同</strong></p>
-<p>结构体赋值 是直接赋值的值。</p>
-<p>对象赋值 是赋值对象的地址。</p>
-<p><strong>5.初始化不同</strong></p>
-<p>类可以在声明的时候初始化，结构不能在申明的时候初始化（不能在结构中初始化字段），否则报错。</p>
-<p><strong>如何选择结构还是类</strong></p>
-<p>1.堆栈的空间有限，对于大量的逻辑的对象，创建类要比创建结构好一些</p>
-<p>2.结构表示如点、矩形和颜色这样的轻量对象，例如，如果声明一个含有 1000 个点对象的数组，则将为引用每个对象分配附加的内存。在此情况下，结构的成本较低。</p>
-<p>3.在表现抽象和多级别的对象层次时，类是最好的选择</p>
-<p>4.大多数情况下该类型只是一些数据时，结构时最佳的选择</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/20/2018-12-20-类和结构体的区别/" data-id="cjpxfju6m000080xndai5ncll" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cookies/">cookies</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
